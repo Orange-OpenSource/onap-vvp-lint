@@ -14,6 +14,7 @@ if [ "$(ls -A $1)" ]; then
       exit $res
   else
     echo "Empty dir, skip"
+  fi
 else
    echo "no Files found"
    exit 1
