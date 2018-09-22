@@ -7,9 +7,11 @@ if [ "$(ls -A $1)" ]; then
   count=`ls -1 $1/*.env 2>/dev/null | wc -l`
   # check there is at least an env file
   if [ $count != 0 ]; then
+      echo "Check $1 ...."
+      mkdir -p /output/$1
       ls $1
       cd $ICE_VALIDATOR_PATH
-      pytest $ICE_VALIDATOR_PATH/tests --cache-clear --runxfail --template-dir=$1 --html=/output/report.html
+      pytest $ICE_VALIDATOR_PATH/tests --cache-clear --runxfail --template-dir=$1 --html=/output/$1/report.html
       res=$?
       if [ $res -ne 0 ]; then
           echo $res > /output/status
