@@ -1,6 +1,6 @@
 FROM alpine:3.8
 
-ARG ONAP_TAG=master
+ARG ONAP_TAG=beijing
 
 COPY run_vvp.sh /run_vvp.sh
 RUN chmod +x /run_vvp.sh
